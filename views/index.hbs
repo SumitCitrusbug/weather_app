@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Information</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+  <h1>Weather Information</h1>
+
+  <!-- Form to input location -->
+  <form action="/data" method="get">
+    <label for="location">Enter Location:</label>
+    <input type="text" id="location" name="location" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+
+  {{#if temperature}}
+    <div class="weather-info">
+      <h2>Weather Details for {{location}}</h2>
+      <p>Region: {{region}}</p>
+      <p>Temperature: {{temperature}}°C</p>
+      <p>Feels Like: {{feelslike}}°C</p>
+      <p>Humidity: {{humidity}}%</p>
+      <p>Description: {{description}}</p>
+    </div>
+  {{/if}}
+  {{#if error}}
+    <div class="error">{{error}}</div>
+  {{/if}}
+
+</body>
+</html>
